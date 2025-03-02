@@ -14,14 +14,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // ইনপুট ভ্যালিডেশন
+
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
         ]);
 
-        // নতুন পণ্য তৈরি এবং ডাটাবেসে সংরক্ষণ
         $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
